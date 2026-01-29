@@ -1,0 +1,323 @@
+.mapa-page {
+    min-height: 100vh;
+    padding: var(--spacing-3xl) 0;
+}
+
+/* ===================================
+   HEADER
+   =================================== */
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.page-title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   SITEMAP SECTION
+   =================================== */
+.sitemap-section {
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-2xl);
+    margin-bottom: var(--spacing-3xl);
+    overflow-x: auto;
+}
+
+.sitemap-title {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.sitemap-description {
+    text-align: center;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* ===================================
+   TREE STRUCTURE
+   =================================== */
+.sitemap-tree {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-2xl) 0;
+    min-width: min-content;
+}
+
+.tree-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    position: relative;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.node-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: rgba(51, 65, 85, 0.5);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.node-content:hover {
+    background: rgba(51, 65, 85, 0.7);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.node-icon {
+    font-size: 1.5rem;
+}
+
+.node-label {
+    font-weight: 600;
+}
+
+/* Root Node */
+.root-node>.node-content {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: white;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.root-node>.node-content:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+}
+
+/* Category Node */
+.category-content {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--color-primary);
+}
+
+/* Tree Children Container */
+.tree-children {
+    display: flex;
+    gap: var(--spacing-xl);
+    justify-content: center;
+    position: relative;
+    padding-top: var(--spacing-lg);
+}
+
+/* Connecting Lines */
+.tree-children::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: var(--spacing-lg);
+    background: var(--color-border);
+}
+
+.tree-node:not(:only-child)::before {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--spacing-lg));
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: var(--spacing-lg);
+    background: var(--color-border);
+}
+
+.tree-children>.tree-node::after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--spacing-lg));
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-border);
+}
+
+.tree-children>.tree-node:only-child::after {
+    display: none;
+}
+
+.tree-children>.tree-node:first-child::after {
+    left: 50%;
+}
+
+.tree-children>.tree-node:last-child::after {
+    right: 50%;
+}
+
+/* ===================================
+   TIPOS DE MAPA
+   =================================== */
+.tipos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.tipo-card {
+    padding: var(--spacing-2xl);
+}
+
+.tipo-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+}
+
+.tipo-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+}
+
+.tipo-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.tipo-usos {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.usos-title {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.usos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.uso-item {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+.uso-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary-light);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ===================================
+   INFO SECTION
+   =================================== */
+.info-section {
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-2xl);
+}
+
+.info-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.benefit-item {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: rgba(51, 65, 85, 0.3);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.benefit-item:hover {
+    background: rgba(51, 65, 85, 0.5);
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.benefit-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.benefit-item p {
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+@media (max-width: 968px) {
+    .tree-children {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tree-children::before,
+    .tree-node::before,
+    .tree-children>.tree-node::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .sitemap-section {
+        padding: var(--spacing-xl);
+    }
+
+    .tipos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}

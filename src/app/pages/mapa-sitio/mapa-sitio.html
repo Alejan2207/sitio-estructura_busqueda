@@ -1,1 +1,108 @@
-<p>mapa-sitio works!</p>
+<div class="mapa-page">
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <h1 class="page-title text-gradient">Mapa del Sitio</h1>
+            <p class="page-subtitle">
+                Visualiza la estructura completa del sitio y comprende cómo se organizan las páginas
+            </p>
+        </div>
+
+        <!-- Interactive Sitemap -->
+        <div class="sitemap-section glass">
+            <h2 class="sitemap-title">Estructura del Sitio</h2>
+            <p class="sitemap-description">
+                Organigrama interactivo generado dinámicamente:
+            </p>
+
+            <div class="sitemap-tree">
+                <!-- Root Node -->
+                <div class="tree-node root-node">
+                    <a [routerLink]="siteMap.route" class="node-content">
+                        <span class="node-icon">{{ siteMap.icon }}</span>
+                        <span class="node-label">{{ siteMap.label }}</span>
+                    </a>
+
+                    <!-- Children Level 1 -->
+                    @if (siteMap.children) {
+                    <div class="tree-children">
+                        @for (category of siteMap.children; track category.label) {
+                        <div class="tree-node category-node">
+                            <div class="node-content category-content">
+                                <span class="node-icon">{{ category.icon }}</span>
+                                <span class="node-label">{{ category.label }}</span>
+                            </div>
+
+                            <!-- Children Level 2 -->
+                            @if (category.children) {
+                            <div class="tree-children">
+                                @for (page of category.children; track page.route) {
+                                <div class="tree-node page-node">
+                                    <a [routerLink]="page.route" class="node-content">
+                                        <span class="node-icon">{{ page.icon }}</span>
+                                        <span class="node-label">{{ page.label }}</span>
+                                    </a>
+                                </div>
+                                }
+                            </div>
+                            }
+                        </div>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Tipos de Mapa -->
+        <div class="tipos-grid">
+            @for (tipo of tiposMapa; track tipo.id) {
+            <div class="tipo-card card glass card-hover">
+                <div class="tipo-icon">{{ tipo.icon }}</div>
+                <h3 class="tipo-title">{{ tipo.title }}</h3>
+                <p class="tipo-description">{{ tipo.description }}</p>
+
+                <div class="tipo-usos">
+                    <h4 class="usos-title">Usos principales:</h4>
+                    <ul class="usos-list">
+                        @for (uso of tipo.usos; track uso) {
+                        <li class="uso-item">{{ uso }}</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section glass">
+            <h2 class="info-title">¿Por qué es importante?</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">👥</div>
+                    <h4>Para Usuarios</h4>
+                    <p>Facilita encontrar contenido y entender la organización del sitio</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🤖</div>
+                    <h4>Para Motores de Búsqueda</h4>
+                    <p>Ayuda a indexar todas las páginas correctamente</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Para Desarrolladores</h4>
+                    <p>Documenta la arquitectura de información del proyecto</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <h4>Para el Negocio</h4>
+                    <p>Planifica el crecimiento y organización del contenido</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

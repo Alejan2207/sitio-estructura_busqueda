@@ -1,1 +1,60 @@
-<p>error-404 works!</p>
+<div class="error-404-page" @fadeIn>
+    <!-- Geometric Background Shapes -->
+    <div class="geometric-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="error-content">
+        <!-- Animated 404 Number -->
+        <div class="error-number" [@float]="floatState">
+            <span class="number">4</span>
+            <span class="number zero-1">0</span>
+            <span class="number">4</span>
+        </div>
+
+        <!-- CSS Illustration -->
+        <div class="illustration">
+            <div class="planet"></div>
+            <div class="astronaut">
+                <div class="head"></div>
+                <div class="body"></div>
+                <div class="arm arm-left"></div>
+                <div class="arm arm-right"></div>
+            </div>
+        </div>
+
+        <!-- Message -->
+        <h1 class="error-title">Página No Encontrada</h1>
+        <p class="error-message">
+            ¡Ups! Parece que te has perdido en el espacio digital.
+            La página que buscas no existe o ha sido movida.
+        </p>
+
+        <!-- Action Button -->
+        <div class="error-actions">
+            <a routerLink="/" class="btn btn-primary">
+                <span class="btn-icon">🏠</span>
+                Volver al Inicio
+            </a>
+            <a routerLink="/mapa-sitio" class="btn btn-outline">
+                Ver Mapa del Sitio
+            </a>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <p class="quick-links-title">Enlaces rápidos:</p>
+            <div class="links-container">
+                <a routerLink="/elementos-sitio" class="quick-link">Elementos del Sitio</a>
+                <a routerLink="/menu" class="quick-link">Menú</a>
+                <a routerLink="/breadcrumbs" class="quick-link">Breadcrumbs</a>
+                <a routerLink="/busqueda" class="quick-link">Búsqueda</a>
+            </div>
+        </div>
+    </div>
+</div>

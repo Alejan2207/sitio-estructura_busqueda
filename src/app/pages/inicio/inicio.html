@@ -1,1 +1,78 @@
-<p>inicio works!</p>
+<div class="inicio-page">
+    <!-- Hero Section -->
+    <section class="hero" @fadeIn>
+        <div class="hero-background"></div>
+        <div class="hero-content container">
+            <h1 class="hero-title text-gradient">
+                Estructura de un Sitio Web
+            </h1>
+            <p class="hero-subtitle">
+                Bienvenido a este proyecto educativo. Explora los componentes fundamentales
+                que conforman la arquitectura y navegación de un sitio web moderno.
+            </p>
+            <div class="hero-actions">
+                <a routerLink="/elementos-sitio" class="btn btn-primary">
+                    Comenzar a Explorar
+                </a>
+                <a routerLink="/mapa-sitio" class="btn btn-outline">
+                    Ver Mapa del Sitio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features container">
+        <div class="features-grid" [@staggerList]="features.length">
+            @for (feature of features; track feature.route) {
+            <div class="feature-card card card-hover glass" @slideUp>
+                <div class="feature-icon">{{ feature.icon }}</div>
+                <h3 class="feature-title">{{ feature.title }}</h3>
+                <p class="feature-description">{{ feature.description }}</p>
+                <a [routerLink]="feature.route" class="feature-link">
+                    Explorar
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+            }
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section container">
+        <div class="info-card glass">
+            <h2 class="info-title">¿Qué aprenderás aquí?</h2>
+            <p class="info-text">
+                Navega a través de las diferentes secciones utilizando el menú superior o los enlaces de esta página.
+                También puedes utilizar la <a routerLink="/busqueda" class="highlight-link">búsqueda avanzada</a>
+                para encontrar temas específicos.
+            </p>
+
+            <div class="topics-grid">
+                <div class="topic-item" @slideUp>
+                    <div class="topic-dot"></div>
+                    <div class="topic-content">
+                        <strong>Estructura Visual:</strong>
+                        <span>Componentes de diseño y layout</span>
+                    </div>
+                </div>
+
+                <div class="topic-item" @slideUp>
+                    <div class="topic-dot"></div>
+                    <div class="topic-content">
+                        <strong>Navegación:</strong>
+                        <span>Cómo orientar al usuario</span>
+                    </div>
+                </div>
+
+                <div class="topic-item" @slideUp>
+                    <div class="topic-dot"></div>
+                    <div class="topic-content">
+                        <strong>Búsqueda:</strong>
+                        <span>Implementación de filtros y búsquedas dinámicas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

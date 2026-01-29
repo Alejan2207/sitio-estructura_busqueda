@@ -1,1 +1,69 @@
-<p>elementos-sitio works!</p>
+<div class="elementos-page">
+    <div class="container">
+        <!-- Header  -->
+        <div class="page-header">
+            <h1 class="page-title text-gradient">Elementos del Sitio Web</h1>
+            <p class="page-subtitle">
+                Conoce los componentes fundamentales que conforman la estructura de un sitio web moderno
+            </p>
+        </div>
+
+        <!-- Elements Grid -->
+        <div class="elementos-grid">
+            @for (elemento of elementos; track elemento.id) {
+            <div class="elemento-card card glass card-hover">
+                <div class="elemento-icon">{{ elemento.icon }}</div>
+                <h3 class="elemento-title">{{ elemento.title }}</h3>
+                <p class="elemento-description">{{ elemento.description }}</p>
+
+                <div class="elemento-features">
+                    <h4 class="features-title">Incluye:</h4>
+                    <ul class="features-list">
+                        @for (feature of elemento.features; track feature) {
+                        <li class="feature-item">{{ feature }}</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- Visual Example -->
+        <div class="visual-example glass">
+            <h2 class="example-title">Ejemplo Visual</h2>
+            <p class="example-description">
+                Estructura típica de un sitio web con todos los elementos:
+            </p>
+
+            <div class="demo-layout">
+                <div class="demo-section demo-header">
+                    <span class="demo-label">Header</span>
+                </div>
+
+                <div class="demo-content">
+                    <div class="demo-section demo-nav">
+                        <span class="demo-label">Nav</span>
+                    </div>
+
+                    <div class="demo-main-area">
+                        <div class="demo-section demo-main">
+                            <span class="demo-label">Main Content</span>
+                            <div class="demo-sections">
+                                <div class="demo-mini">Section 1</div>
+                                <div class="demo-mini">Section 2</div>
+                            </div>
+                        </div>
+
+                        <div class="demo-section demo-aside">
+                            <span class="demo-label">Aside</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-section demo-footer">
+                    <span class="demo-label">Footer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

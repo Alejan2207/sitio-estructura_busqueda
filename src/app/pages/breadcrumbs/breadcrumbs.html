@@ -1,1 +1,124 @@
-<p>breadcrumbs works!</p>
+<div class="breadcrumbs-page">
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <h1 class="page-title text-gradient">Breadcrumbs</h1>
+            <p class="page-subtitle">
+                Sistema de navegación que muestra la ubicación actual del usuario dentro de la jerarquía del sitio
+            </p>
+        </div>
+
+        <!-- Live Demo -->
+        <div class="demo-section glass">
+            <h2 class="demo-title">Demo en Vivo</h2>
+            <p class="demo-description">
+                Este breadcrumb refleja tu ubicación actual en el sitio:
+            </p>
+
+            <nav class="breadcrumb-demo" aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    @for (crumb of breadcrumbs(); track crumb.url; let isLast = $last) {
+                    <li class="breadcrumb-item" [class.active]="crumb.active">
+                        @if (!isLast) {
+                        <a [routerLink]="crumb.url" class="breadcrumb-link">
+                            {{ crumb.label }}
+                        </a>
+                        <span class="breadcrumb-separator">›</span>
+                        } @else {
+                        <span class="breadcrumb-current">{{ crumb.label }}</span>
+                        }
+                    </li>
+                    }
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="info-grid">
+            <div class="info-card card glass">
+                <div class="info-icon">🎯</div>
+                <h3 class="info-title">¿Qué son?</h3>
+                <p class="info-text">
+                    Los breadcrumbs son una ayuda visual que muestra la ruta de navegación desde la página
+                    principal hasta la página actual, ayudando al usuario a entender dónde se encuentra.
+                </p>
+            </div>
+
+            <div class="info-card card glass">
+                <div class="info-icon">✨</div>
+                <h3 class="info-title">Beneficios</h3>
+                <ul class="info-list">
+                    <li>Mejora la orientación del usuario</li>
+                    <li>Reduce la tasa de rebote</li>
+                    <li>Facilita la navegación</li>
+                    <li>Mejora el SEO</li>
+                </ul>
+            </div>
+
+            <div class="info-card card glass">
+                <div class="info-icon">🔧</div>
+                <h3 class="info-title">Buenas Prácticas</h3>
+                <ul class="info-list">
+                    <li>Usar separadores claros (›, /, →)</li>
+                    <li>Último elemento no clicable</li>
+                    <li>Comenzar desde la página principal</li>
+                    <li>Mantener jerarquía lógica</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Examples -->
+        <div class="examples-section glass">
+            <h2 class="examples-title">Ejemplos de Breadcrumbs</h2>
+
+            <div class="examples-list">
+                <div class="example-item">
+                    <p class="example-label">Sitio de E-commerce:</p>
+                    <nav class="example-breadcrumb">
+                        <span class="example-crumb">Inicio</span>
+                        <span class="separator">›</span>
+                        <span class="example-crumb">Electrónica</span>
+                        <span class="separator">›</span>
+                        <span class="example-crumb">Laptops</span>
+                        <span class="separator">›</span>
+                        <span class="example-crumb active">MacBook Pro 14"</span>
+                    </nav>
+                </div>
+
+                <div class="example-item">
+                    <p class="example-label">Blog:</p>
+                    <nav class="example-breadcrumb">
+                        <span class="example-crumb">Inicio</span>
+                        <span class="separator">›</span>
+                        <span class="example-crumb">Tecnología</span>
+                        <span class="separator">›</span>
+                        <span class="example-crumb active">Angular 17 - Novedades</span>
+                    </nav>
+                </div>
+
+                <div class="example-item">
+                    <p class="example-label">Documentación:</p>
+                    <nav class="example-breadcrumb">
+                        <span class="example-crumb">Docs</span>
+                        <span class="separator">›</span>
+                        <span class="example-crumb">API Reference</span>
+                        <span class="separator">›</span>
+                        <span class="example-crumb">Components</span>
+                        <span class="separator">›</span>
+                        <span class="example-crumb active">Button</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation-section">
+            <p class="nav-text">Explora otras secciones para ver cómo cambian los breadcrumbs:</p>
+            <div class="nav-links">
+                <a routerLink="/menu" class="nav-button btn btn-primary">Ir a Menú</a>
+                <a routerLink="/mapa-sitio" class="nav-button btn btn-outline">Ir a Mapa del Sitio</a>
+                <a routerLink="/busqueda" class="nav-button btn btn-outline">Ir a Búsqueda</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -40,7 +40,7 @@ export class Breadcrumb implements OnDestroy {
   // El '!' indica que se inicializará definidamente antes de usarse.
   private subscription!: Subscription;
   // Propiedad de ejemplo (parece no usada o de prueba).
-  
+
 
 
   // Inyección de dependencias del servicio Router.
@@ -68,10 +68,12 @@ export class Breadcrumb implements OnDestroy {
 
     // Mapa de traducción para segmentos específicos de la URL a nombres legibles.
     const labelMap: Record<string, string> = {
-      'elementos-sitio': 'Elementos',
-      menu: 'Menú',
-      breadcrumbs: 'Breadcrumb',
-      'mapa-sitio': 'Mapa del sitio',
+      'elementos-sitio': 'Elementos del Sitio',
+      'menu': 'Menú',
+      'breadcrumbs': 'Breadcrumbs',
+      'mapa-sitio': 'Mapa del Sitio',
+      'busqueda': 'Búsqueda',
+      'inicio': 'Inicio'
     };
 
     // Inicializa los breadcrumbs siempre con el "Inicio".

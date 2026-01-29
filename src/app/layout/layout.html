@@ -1,25 +1,48 @@
-<header class="topbar">
-    <div class="brand">Sitio-Estructura</div>
-    <nav class="menu">
-       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
-       
-       <a routerLink="/breadcrumbs" routerLinkActive="active">Breadcrumbs</a>
-       <a routerLink="/elementos-sitio" routerLinkActive="active">Elementos</a>
-       <a routerLink="/menu" routerLinkActive="active">Menú</a>
-       <a routerLink="/mapa-sitio" routerLinkActive="active">Mapa del sitio</a>
-       <a routerLink="/busqueda" routerLinkActive="active">Búsqueda</a>
-    </nav>
-    <form class="d-flex ms-3"(submit)="$event.preventDefault(); goSearch();">
-        <input class=" form-control form-control-sm me-2" placeholder="Buscar..." [(ngModel)]="quickQuery" name="quickQuery" /> 
-         <button class="btn btn-sm btn-primary" type="submit">Ir</button>
-    </form>
+<header class="navbar-layout">
+    <div class="navbar-container">
+        <!-- Brand -->
+        <div class="navbar-brand">
+            <span class="brand-name">Sitio-Estructura</span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="navbar-nav">
+            <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+                Inicio
+            </a>
+            <a routerLink="/elementos-sitio" routerLinkActive="active-link" class="nav-link">
+                Elementos
+            </a>
+            <a routerLink="/menu" routerLinkActive="active-link" class="nav-link">
+                Menú
+            </a>
+            <a routerLink="/breadcrumbs" routerLinkActive="active-link" class="nav-link">
+                Breadcrumbs
+            </a>
+            <a routerLink="/mapa-sitio" routerLinkActive="active-link" class="nav-link">
+                Mapa del Sitio
+            </a>
+            <a routerLink="/busqueda" routerLinkActive="active-link" class="nav-link">
+                Búsqueda
+            </a>
+        </nav>
+
+        <!-- Quick Search -->
+        <form class="navbar-search" (submit)="$event.preventDefault(); goSearch();">
+            <input class="search-input" placeholder="Buscar..." [(ngModel)]="quickQuery" name="quickQuery"
+                autocomplete="off" />
+            <button class="search-button" type="submit">Ir</button>
+        </form>
+    </div>
 </header>
 
-<main class="content">
+<main class="main-content">
     <app-breadcrumb></app-breadcrumb>
     <router-outlet></router-outlet>
 </main>
 
-<footer class="footer">
-    <small>Desarrollo Web Profesional</small>
+<footer class="footer-layout">
+    <div class="footer-container">
+        <p class="footer-text">Desarrollo Web Profesional © 2026</p>
+    </div>
 </footer>

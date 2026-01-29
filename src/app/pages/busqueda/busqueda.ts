@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 import { SearchApi, SearchFilters } from '../../services/search';
 import { SiteItem } from '../../data/site-index';
 
-
-
 @Component({
   selector: 'app-busqueda',
   standalone: true,
@@ -17,7 +15,6 @@ import { SiteItem } from '../../data/site-index';
   styleUrl: './busqueda.css',
 })
 export class Busqueda {
-
   query = '';
 
   filters: SearchFilters = {

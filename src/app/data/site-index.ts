@@ -13,20 +13,20 @@ export type SiteItem = {
 
 export const SITE_INDEX: SiteItem[] = [
     {
-        id: 'menu',
+        id: 'inicio',
         title: 'Inicio',
-        description: 'Pagina principal del sitio de práctica',
+        description: 'Página principal del proyecto de Estructura Web. Introducción y acceso rápido a las secciones.',
         path: '/',
         type: 'pagina',
         section: 'Estructura del sitio',
-        keywords: ['inicio', 'home', 'principal', 'estructura'],
+        keywords: ['inicio', 'home', 'principal', 'estructura', 'bienvenida', 'introducción'],
         otro: 'asdasd'
     },
     {
         id: 'elementos-sitio',
         title: 'Elementos del sitio',
         description: 'identifica los elementos que componen un sitio web.',
-        path: '/elemntos',
+        path: '/elementos-sitio',
         type: 'pagina',
         section: 'Estructura del sitio',
         keywords: ['elementos', 'sitio', 'header', 'footer', 'main', 'layout'],
@@ -38,7 +38,7 @@ export const SITE_INDEX: SiteItem[] = [
         path: '/menu',
         type: 'pagina',
         section: 'Navegación',
-        keywords: ['menu', 'navegación', 'navbar', 'links', 'persistente'],
+        keywords: ['menu', 'navegación', 'navbar', 'links', 'persistente', 'hamburguesa', 'footer'],
     },
     {
         id: 'breadcrumbs',
@@ -47,7 +47,7 @@ export const SITE_INDEX: SiteItem[] = [
         path: '/breadcrumbs',
         type: 'pagina',
         section: 'Navegación',
-        keywords: ['breadcrumbs', 'migas', 'ruta', 'navegación', 'ux'],
+        keywords: ['breadcrumbs', 'migas', 'ruta', 'navegación', 'ux', 'jerarquia', 'historial'],
     },
     {
         id: 'mapa-sitio',
@@ -56,7 +56,7 @@ export const SITE_INDEX: SiteItem[] = [
         path: '/mapa-sitio',
         type: 'pagina',
         section: 'Navegación',
-        keywords: ['mapa', 'sitio', 'sitemap', 'estructura', 'rutas'],
+        keywords: ['mapa', 'sitio', 'sitemap', 'estructura', 'rutas', 'xml', 'googlebot'],
     },
     {
         id: 'errores-404',

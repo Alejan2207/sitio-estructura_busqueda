@@ -1,1 +1,99 @@
-<p>menu works!</p>
+<div class="menu-page">
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <h1 class="page-title text-gradient">Sistemas de Menú</h1>
+            <p class="page-subtitle">
+                Explora los diferentes tipos de menús de navegación y cómo implementarlos efectivamente
+            </p>
+        </div>
+
+        <!-- Interactive Demo Navbar -->
+        <div class="demo-navbar-section glass">
+            <h2 class="demo-title">Demo de Navbar Interactivo</h2>
+            <p class="demo-description">Navbar sticky con indicadores de ruta activa:</p>
+
+            <nav class="demo-navbar">
+                <div class="navbar-brand">
+                    <span class="brand-logo">🌐</span>
+                    <span class="brand-name">Mi Sitio</span>
+                </div>
+
+                <button class="mobile-toggle" (click)="toggleMobileMenu()" [class.active]="mobileMenuOpen()">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+
+                <div class="navbar-menu" [class.open]="mobileMenuOpen()">
+                    @for (item of navItems; track item.route) {
+                    <a [routerLink]="item.route" class="nav-link" [class.active]="isActiveRoute(item.route)"
+                        (click)="mobileMenuOpen.set(false)">
+                        <span class="nav-icon">{{ item.icon }}</span>
+                        <span class="nav-label">{{ item.label }}</span>
+                    </a>
+                    }
+                </div>
+            </nav>
+        </div>
+
+        <!-- Tipos de Menú -->
+        <div class="tipos-grid">
+            @for (tipo of tiposMenu; track tipo.id) {
+            <div class="tipo-card card glass card-hover">
+                <div class="tipo-icon">{{ tipo.icon }}</div>
+                <h3 class="tipo-title">{{ tipo.title }}</h3>
+                <p class="tipo-description">{{ tipo.description }}</p>
+
+                <div class="tipo-features">
+                    <h4 class="features-title">Características:</h4>
+                    <ul class="features-list">
+                        @for (feature of tipo.caracteristicas; track feature) {
+                        <li class="feature-item">{{ feature }}</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- Buenas Prácticas -->
+        <div class="best-practices glass">
+            <h2 class="practices-title">Buenas Prácticas para Menús</h2>
+
+            <div class="practices-grid">
+                <div class="practice-item">
+                    <div class="practice-icon">✓</div>
+                    <div class="practice-content">
+                        <h4>Mantén la Simplicidad</h4>
+                        <p>No más de 7 elementos en el menú principal para evitar sobrecarga cognitiva</p>
+                    </div>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">✓</div>
+                    <div class="practice-content">
+                        <h4>Indicadores Visuales</h4>
+                        <p>Resalta la página actual y muestra estados de hover claramente</p>
+                    </div>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">✓</div>
+                    <div class="practice-content">
+                        <h4>Diseño Responsivo</h4>
+                        <p>Implementa menú hamburguesa para móviles cuando sea necesario</p>
+                    </div>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">✓</div>
+                    <div class="practice-content">
+                        <h4>Accesibilidad</h4>
+                        <p>Usa HTML semántico (nav, aria-labels) para navegación accesible</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
